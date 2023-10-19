@@ -12,15 +12,19 @@ function Multiple() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name,value)
+    
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event,data) => {
+
     event.preventDefault();
     alert(
       `Name: ${formData.name}, Discription: ${formData.discription},Category: ${formData.Category},Quantity: ${formData.Quantity},Price: ${formData.Price}`
     );
+
+    console.log(formData)
+    
   };
 
   return (

@@ -6,13 +6,18 @@ function LoginForm() {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm();
 
   const onSubmit = (data) => {
-   
-      alert(JSON.stringify(data, null, 2)); 
-      console.log(data);
-    };
+      const {password,password2} =data;
+      if(password!==password2){
+        alert("password is different.")
+      }
+      else{alert(JSON.stringify(data, null, 2)); 
+      console.log(data);}
+    }
+    
   
 
 
@@ -65,12 +70,25 @@ function LoginForm() {
         type="password"
         className="hook__input"
         placeholder="password"
+        name="password"
         {...register("password", { required: true })}
       />
       {errors.password && <p className="hook__error">Password is required</p>}
 
-      <button className="hook__button" type="submit">
-        Submit
+      <input
+        type="password"
+        name="password2"
+        className="hook__input"
+        placeholder="confirm"
+        {...register("password2", {
+          required: true
+          
+        })}
+      />
+{    errors.password2 && <p className="hook__error">confrim password is required</p>} 
+      
+      <button className="hook__button" type="submit" >
+        SUBMIT
       </button>
     </form>
   );
