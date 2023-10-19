@@ -4,8 +4,10 @@ import React, { useState } from "react";
 function Multiple() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    message: "",
+    description: "",
+    Category: "",
+    Quantity:"",
+    Price:"",
   });
 
   const handleChange = (event) => {
@@ -17,49 +19,73 @@ function Multiple() {
   const handleSubmit = (event) => {
     event.preventDefault();
     alert(
-      `Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}`
+      `Name: ${formData.name}, Discription: ${formData.discription},Category: ${formData.Category},Quantity: ${formData.Quantity},Price: ${formData.Price}`
     );
   };
 
   return (
     <form onSubmit={handleSubmit} className="multiple">
-      <label className="multiple__text" htmlFor="name">
-        Name:
-      </label>
+      
       <input
         type="text"
         id="name"
         className="multiple__input"
+        placeholder="name"
         name="name"
         value={formData.name}
         onChange={handleChange}
       />
 
-      <label className="multiple__text" htmlFor="email">
-        Email:
-      </label>
       <input
-        type="email"
-        id="email"
+        type="text"
+        id="discription"
         className="multiple__input"
-        name="email"
-        value={formData.email}
+        placeholder="discription"
+        name="discription"
+        value={formData.discription}
         onChange={handleChange}
       />
 
-      <label className="multiple__text" htmlFor="message">
-        Message:
-      </label>
-      <textarea
-        id="message"
-        className="multiple__textarea"
-        name="message"
-        value={formData.message}
+    <input
+        type="text"
+        id="Category"
+        className="multiple__input"
+        placeholder="Category"
+        name="Category"
+        value={formData.Category}
         onChange={handleChange}
       />
+
+      <input
+        type="text"
+        id="Quantity"
+        className="multiple__input"
+        placeholder="Quantity"
+        name="Quantity"
+        value={formData.Quantity}
+        onChange={handleChange}
+      />
+
+     <input
+        type="number"
+        id="Price"
+        className="multiple__input"
+        placeholder="Price"
+        name="Price"
+        value={formData.Price}
+        onChange={handleChange}
+      />
+
+
+      
+
 
       <button className="multiple__button" type="submit">
-        Submit
+        SUBMIT
+      </button>
+
+      <button >
+        CANCEL
       </button>
     </form>
   );
